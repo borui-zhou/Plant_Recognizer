@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1cP-Cx-N8F">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Plant Recognizer-->
+        <scene sceneID="wx6-eA-OYg">
+            <objects>
+                <viewController id="NqM-zr-0yh" customClass="ViewController" customModule="Plant_Recognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ltf-cv-RRF"/>
+                        <viewControllerLayoutGuide type="bottom" id="kOt-7s-dML"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ipw-gC-Drm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pvL-S5-Pyt">
+                                <rect key="frame" x="38" y="184" width="299" height="299"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pvL-S5-Pyt" secondAttribute="height" multiplier="1:1" id="F8p-U8-Whf"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an image from library or take a picture." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="NzN-ax-Ni6">
+                                <rect key="frame" x="16" y="532" width="343" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pvL-S5-Pyt" firstAttribute="centerY" secondItem="Ipw-gC-Drm" secondAttribute="centerY" id="Osh-rN-NL2"/>
+                            <constraint firstItem="NzN-ax-Ni6" firstAttribute="leading" secondItem="Ipw-gC-Drm" secondAttribute="leadingMargin" id="UDr-aA-ynS"/>
+                            <constraint firstItem="NzN-ax-Ni6" firstAttribute="top" secondItem="pvL-S5-Pyt" secondAttribute="bottom" constant="49" id="Wzh-rx-XUD"/>
+                            <constraint firstItem="pvL-S5-Pyt" firstAttribute="centerX" secondItem="Ipw-gC-Drm" secondAttribute="centerX" id="eCP-hj-RTn"/>
+                            <constraint firstItem="NzN-ax-Ni6" firstAttribute="trailing" secondItem="Ipw-gC-Drm" secondAttribute="trailingMargin" id="r62-aI-CDX"/>
+                            <constraint firstItem="pvL-S5-Pyt" firstAttribute="top" secondItem="ltf-cv-RRF" secondAttribute="bottom" constant="120" id="xhv-9l-8D8"/>
+                            <constraint firstItem="kOt-7s-dML" firstAttribute="top" secondItem="NzN-ax-Ni6" secondAttribute="bottom" constant="88" id="yVA-vd-mDU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qls-K2-Z5n"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Plant Recognizer" id="Ta1-GN-Zga">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="Vm0-Ml-Fkd">
+                            <connections>
+                                <action selector="camera:" destination="NqM-zr-0yh" id="Wck-29-vQL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Library" id="CE2-Km-Shn">
+                            <connections>
+                                <action selector="openLibrary:" destination="NqM-zr-0yh" id="vKf-TM-Tlo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="classifier" destination="NzN-ax-Ni6" id="qGr-v7-amd"/>
+                        <outlet property="imageView" destination="pvL-S5-Pyt" id="8LM-8J-lV8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lyh-23-fX0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829.60000000000002" y="169.56521739130437"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r9P-9q-o7w">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1cP-Cx-N8F" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VqM-tI-xHy">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NqM-zr-0yh" kind="relationship" relationship="rootViewController" id="x9u-bS-ptz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A73-ml-LIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66" y="171"/>
+        </scene>
+    </scenes>
+</document>
